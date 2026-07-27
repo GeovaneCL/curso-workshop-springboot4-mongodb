@@ -1,13 +1,16 @@
 package com.geovaneCL.workshopmongo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.geovaneCL.workshopmongo.dto.AuthorDTO;
+import com.geovaneCL.workshopmongo.dto.CommentDTO;
 
 @JsonPropertyOrder({ "id", "date", "title", "body", "author" })
 @Document(collection = "post")
@@ -20,6 +23,8 @@ public class Post implements Serializable{
     private String title;
     private String body;
     private AuthorDTO author;
+
+    private List<CommentDTO> coments = new ArrayList<>();
 
     public Post(){
 
@@ -76,6 +81,13 @@ public class Post implements Serializable{
         this.author = author;
     }
 
+    public List<CommentDTO> getComents() {
+        return coments;
+    }
+
+    public void setComents(List<CommentDTO> coments) {
+        this.coments = coments;
+    }
 
     @Override
     public int hashCode() {
