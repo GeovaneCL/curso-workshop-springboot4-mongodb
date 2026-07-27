@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.geovaneCL.workshopmongo.dto.AuthorDTO;
 
 @JsonPropertyOrder({ "id", "date", "title", "body", "author" })
-@Document(collation = "post")
+@Document(collection = "post")
 public class Post implements Serializable{
     public static final long serialVersionUID = 1L;
     
